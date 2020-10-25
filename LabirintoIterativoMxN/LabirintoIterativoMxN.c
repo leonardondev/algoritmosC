@@ -12,8 +12,8 @@
 
 /* variaveis globais */
 FILE *leitura;  /*ponteiro para o arquivo*/
-int l=11;/* numero de linhas do labirinto */
-int c=11;/* numero de colunas do labirinto */
+
+
 int lAnt=-1;
 int cAnt=0;
 int saida=1;
@@ -25,14 +25,16 @@ void movimento(const char* mov);
 
 
 /* funcao principal */
-int main(){
-
+int main(int argc, char **argv)){
+   int l=atoi(argv[1]);/* numero de linhas do labirinto */
+   int c=atoi(argv[2]);/* numero de colunas do labirinto */
+  
    /* declaracao */
    int i,j,k,tam;
-   int maze[l][c];
+   int maze[argv[1]][argv[2]];
 
    /* leitura aponta para o arquivo */
-   leitura = fopen("lab1.txt","r");/* arquivo que sera aberto contendo a matriz do labirinto */
+   leitura = fopen(argv[3],"r");/* arquivo que sera aberto contendo a matriz do labirinto */
    if(leitura==NULL){
       puts("O ARQUIVO NAO FOI ENCONTRADO\n");
       while (1);
